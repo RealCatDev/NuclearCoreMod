@@ -26,6 +26,6 @@ meow. Nuclear plant goes boom.
 [[dependencies.nuclearcoremod]]
     modId="geckolib3"
     mandatory=true
-    versionRange="[1.19,1.20)"
+    versionRange="[1.19,)"
     ordering="NONE"
     side="BOTH"
