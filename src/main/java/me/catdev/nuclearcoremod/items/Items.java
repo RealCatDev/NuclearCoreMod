@@ -3,8 +3,6 @@ package me.catdev.nuclearcoremod.items;
 import me.catdev.nuclearcoremod.NuclearCoreMod;
 import me.catdev.nuclearcoremod.items.custom.RadiationSuitItem;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
