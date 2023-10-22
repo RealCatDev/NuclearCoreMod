@@ -1,6 +1,7 @@
 package me.catdev.nuclearcoremod;
 
 import com.mojang.logging.LogUtils;
+import me.catdev.nuclearcoremod.blocks.Blocks;
 import me.catdev.nuclearcoremod.items.Items;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -21,6 +22,7 @@ public class NuclearCoreMod
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        Blocks.Register(modEventBus);
         Items.Register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
