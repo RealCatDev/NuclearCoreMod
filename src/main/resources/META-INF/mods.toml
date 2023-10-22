@@ -12,9 +12,9 @@ description='''
 meow. Nuclear plant goes boom.
 '''
 [[dependencies.nuclearcoremod]] #optional
-    modId="forge" #mandatory
-    mandatory=true #mandatory
-    versionRange="[41,)" #mandatory
+    modId="forge"
+    mandatory=true
+    versionRange="[41,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.nuclearcoremod]]

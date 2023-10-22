@@ -1,3 +1,5 @@
 {
-  "item.nuclearcoremod.test": "Przedmiot Testowy"
+  "item.nuclearcoremod.test": "Przedmiot Testowy",
+
+  "itemGroup.testtab": "Zakładka Test"
 }
