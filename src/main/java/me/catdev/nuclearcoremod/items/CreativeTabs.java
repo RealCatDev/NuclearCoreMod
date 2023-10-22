@@ -8,7 +8,7 @@ public class CreativeTabs {
     public static final CreativeModeTab TEST_TAB = new CreativeModeTab("testtab") {
         @Override
         public ItemStack makeIcon() {
-            return new ItemStack(Items.TEST_ITEM.get());
+            return new ItemStack(Items.RADIATION_METER.get());
         }
     };
 
