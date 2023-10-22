@@ -1,10 +1,10 @@
 {
 	"parent": "item/generated",
 	"textures": {
-		"0": "nuclearcoremod:textures/items/radiation_meter/background",
-		"1": "nuclearcoremod:textures/items/radiation_meter/buttons",
-		"2": "nuclearcoremod:textures/items/radiation_meter/meter",
-		"particle": "nuclearcoremod:textures/items/radiation_meter/background"
+		"0": "nuclearcoremod:item/radiation_meter_background",
+		"1": "nuclearcoremod:item/radiation_meter_buttons",
+		"2": "nuclearcoremod:item/radiation_meter_meter",
+		"particle": "nuclearcoremod:item/radiation_meter_background"
 	},
 	"elements": [
 		{

@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "" : { "model": "nuclearcoremod:block/uranium_ore" }
+  }
+}

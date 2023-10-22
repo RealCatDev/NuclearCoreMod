@@ -1,5 +1,8 @@
 {
   "item.nuclearcoremod.test": "Test Item",
+  "item.nuclearcoremod.radiationmeter": "Radiation Meter",
+
+  "block.nuclearcoremod.uranium_ore":  "Uranium Ore",
 
   "itemGroup.testtab": "Test Tab"
 }

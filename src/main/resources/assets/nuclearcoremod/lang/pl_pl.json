@@ -1,5 +1,8 @@
 {
-  "item.nuclearcoremod.test": "Przedmiot Testowy",
+  "item.nuclearcoremod.test": "Przedmiot testowy",
+  "item.nuclearcoremod.radiationmeter": "Czytnik promieniowania",
+
+  "block.nuclearcoremod.uranium_ore":  "Ruda uranu",
 
   "itemGroup.testtab": "Zakładka Test"
 }
