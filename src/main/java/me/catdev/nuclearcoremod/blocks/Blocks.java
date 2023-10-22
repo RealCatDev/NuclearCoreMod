@@ -28,7 +28,7 @@ public class Blocks {
             UniformInt.of(5, 9)), CreativeTabs.TEST_TAB);
 
     public static final RegistryObject<Block> ELECTRICAL_WIRE = RegisterBlock("electrical_wire", () -> new ElectricalWire(
-            BlockBehaviour.Properties.of(Material.STONE).strength(0f)), CreativeTabs.TEST_TAB);
+            BlockBehaviour.Properties.of(Material.STONE).strength(0f).noOcclusion()), CreativeTabs.TEST_TAB);
 
     public static <T extends Block> RegistryObject<T> RegisterBlock(String name, Supplier<T> block, CreativeModeTab tab) {
         RegistryObject<T> ret = BLOCKS.register(name, block);
