@@ -1,0 +1,37 @@
+{
+  "display": {
+    "title": {
+      "text": "Radioactive",
+      "color": "dark_green",
+      "bold": true
+    },
+    "description": {
+      "text": "Obtain Uranium Ore"
+    },
+    "icon": {
+      "item": "nuclearcoremod:uranium_ore"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false,
+    "background": "nuclearcoremod:textures/block/uranium_ore.png"
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nuclearcoremod:uranium_ore"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 10
+  }
+}
