@@ -3,6 +3,8 @@ package me.catdev.nuclearcoremod;
 import com.mojang.logging.LogUtils;
 import me.catdev.nuclearcoremod.init.BlockInit;
 import me.catdev.nuclearcoremod.items.Items;
+import me.catdev.nuclearcoremod.world.features.ModConfiguredFeatures;
+import me.catdev.nuclearcoremod.world.features.ModPlacedFeatures;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
@@ -26,6 +28,9 @@ public class NuclearCoreMod
 
         BlockInit.Register(modEventBus);
         Items.Register(modEventBus);
+
+        ModConfiguredFeatures.Register(modEventBus);
+        ModPlacedFeatures.Register(modEventBus);
 
         GeckoLib.initialize();
 
