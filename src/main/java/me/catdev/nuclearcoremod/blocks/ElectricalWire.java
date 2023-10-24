@@ -45,4 +45,9 @@ public class ElectricalWire extends HorizontalDirectionalBlock {
     public BlockState rotate(BlockState state, LevelAccessor level, BlockPos pos, Rotation direction) {
         return state.setValue(FACING, direction.rotate(state.getValue(FACING)));
     }
+
+    @Override
+    public void onNeighborChange(BlockState state, LevelReader level, BlockPos pos, BlockPos neighbor) {
+//        if (level.getBlockState(neighbor).getBlock() == ElectricalWire.this)
+    }
 }
