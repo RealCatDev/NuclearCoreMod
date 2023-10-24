@@ -15,6 +15,8 @@ public class EffectsInit {
 
     public static final RegistryObject<MobEffect> RADIATION_EFFECT = EFFECTS.register("radiationeffect",
             () -> new RadiationEffect(MobEffectCategory.HARMFUL,  0xFF6600));
+
+
     public static void Register(IEventBus eventBus){
         EFFECTS.register(eventBus);
     }
