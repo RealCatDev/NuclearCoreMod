@@ -1,14 +1,14 @@
-package me.catdev.nuclearcoremod.items;
+package me.catdev.nuclearcoremod.init;
 
 import me.catdev.nuclearcoremod.NuclearCoreMod;
-import net.minecraft.world.entity.EquipmentSlot;
+import me.catdev.nuclearcoremod.items.CreativeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-public class Items {
+public class ItemsInit {
 
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, NuclearCoreMod.MOD_ID);
 

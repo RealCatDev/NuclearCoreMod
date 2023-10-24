@@ -1,8 +1,9 @@
 package me.catdev.nuclearcoremod;
 
 import com.mojang.logging.LogUtils;
+import me.catdev.nuclearcoremod.init.BlockEntityInit;
 import me.catdev.nuclearcoremod.init.BlockInit;
-import me.catdev.nuclearcoremod.items.Items;
+import me.catdev.nuclearcoremod.init.ItemsInit;
 import me.catdev.nuclearcoremod.world.features.ModConfiguredFeatures;
 import me.catdev.nuclearcoremod.world.features.ModPlacedFeatures;
 import net.minecraftforge.api.distmarker.Dist;
@@ -27,7 +28,8 @@ public class NuclearCoreMod
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         BlockInit.Register(modEventBus);
-        Items.Register(modEventBus);
+        BlockEntityInit.Register(modEventBus);
+        ItemsInit.Register(modEventBus);
 
         ModConfiguredFeatures.Register(modEventBus);
         ModPlacedFeatures.Register(modEventBus);

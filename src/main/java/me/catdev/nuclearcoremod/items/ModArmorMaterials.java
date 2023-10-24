@@ -1,6 +1,7 @@
 package me.catdev.nuclearcoremod.items;
 
 import me.catdev.nuclearcoremod.NuclearCoreMod;
+import me.catdev.nuclearcoremod.init.ItemsInit;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.LazyLoadedValue;
@@ -12,7 +13,7 @@ import java.util.function.Supplier;
 
 public enum ModArmorMaterials implements ArmorMaterial {
     RADIATION_SUIT("radiation_suit", 28, new int[]{2, 5, 8, 3}, 19, SoundEvents.ARMOR_EQUIP_GOLD,
-            2.0F, 0.0F, () -> Ingredient.of(Items.URANIUM_INGOT.get()));
+            2.0F, 0.0F, () -> Ingredient.of(ItemsInit.URANIUM_INGOT.get()));
 
     private static final int[] HEALTH_PER_SLOT = new int[]{13, 15, 16, 11};
     private final String name;

@@ -4,7 +4,6 @@ import me.catdev.nuclearcoremod.NuclearCoreMod;
 import me.catdev.nuclearcoremod.blocks.ElectricalWire;
 import me.catdev.nuclearcoremod.blocks.custom.UraniumOre;
 import me.catdev.nuclearcoremod.items.CreativeTabs;
-import me.catdev.nuclearcoremod.items.Items;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -37,7 +36,7 @@ public class BlockInit {
     }
 
     public static <T extends Block> RegistryObject<Item> RegisterBlockItem(String name, RegistryObject<T> block, CreativeModeTab tab) {
-        return Items.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(tab)));
+        return ItemsInit.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(tab)));
     }
 
     public static void Register(IEventBus eventBus) {
