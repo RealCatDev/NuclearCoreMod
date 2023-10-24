@@ -1,8 +1,10 @@
 {
-  "item.nuclearcoremod.test": "Przedmiot testowy",
-  "item.nuclearcoremod.radiationmeter": "Czytnik promieniowania",
 
-  "block.nuclearcoremod.uranium_ore":  "Ruda uranu",
+  "item.nuclearcoremod.radiationmeter": "Miernik promieniowania",
+  "item.nuclearcoremod.uranium_ingot": "Sztabka uranu",
 
-  "itemGroup.testtab": "Zakładka Test"
+  "block.nuclearcoremod.uranium_ore": "Ruda uranu",
+  "block.nuclearcoremod.electrical_wire": "Przewód elektryczny",
+
+  "itemGroup.Nuclear Core": "Jądrowy rdzeń"
 }

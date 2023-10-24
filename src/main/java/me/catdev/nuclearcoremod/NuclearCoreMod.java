@@ -1,7 +1,7 @@
 package me.catdev.nuclearcoremod;
 
 import com.mojang.logging.LogUtils;
-import me.catdev.nuclearcoremod.blocks.Blocks;
+import me.catdev.nuclearcoremod.init.BlockInit;
 import me.catdev.nuclearcoremod.items.Items;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -24,7 +24,7 @@ public class NuclearCoreMod
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        Blocks.Register(modEventBus);
+        BlockInit.Register(modEventBus);
         Items.Register(modEventBus);
 
         GeckoLib.initialize();
