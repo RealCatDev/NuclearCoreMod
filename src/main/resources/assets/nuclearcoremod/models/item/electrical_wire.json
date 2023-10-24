@@ -1,3 +1,6 @@
 {
-  "parent": "nuclearcoremod:block/electrical_wire"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "nuclearcoremod:item/electrical_wire"
+  }
 }
