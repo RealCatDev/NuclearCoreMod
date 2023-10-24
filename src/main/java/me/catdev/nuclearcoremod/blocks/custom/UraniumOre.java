@@ -1,5 +1,6 @@
 package me.catdev.nuclearcoremod.blocks.custom;
 
+import me.catdev.nuclearcoremod.init.BlockEntityInit;
 import me.catdev.nuclearcoremod.utils.TickableBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -28,8 +29,8 @@ public class UraniumOre extends Block implements EntityBlock {
 
     @Nullable
     @Override
-    public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-        return null;
+    public BlockEntity newBlockEntity(BlockPos Pos, BlockState State) {
+        return BlockEntityInit.URANIUM_ORE_BLOCK.get().create(Pos, State);
     }
 
     @Nullable

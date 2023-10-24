@@ -3,6 +3,7 @@ package me.catdev.nuclearcoremod;
 import com.mojang.logging.LogUtils;
 import me.catdev.nuclearcoremod.init.BlockEntityInit;
 import me.catdev.nuclearcoremod.init.BlockInit;
+import me.catdev.nuclearcoremod.init.EffectsInit;
 import me.catdev.nuclearcoremod.init.ItemsInit;
 import me.catdev.nuclearcoremod.world.features.ModConfiguredFeatures;
 import me.catdev.nuclearcoremod.world.features.ModPlacedFeatures;
@@ -29,10 +30,13 @@ public class NuclearCoreMod
 
         BlockInit.Register(modEventBus);
         BlockEntityInit.Register(modEventBus);
+
         ItemsInit.Register(modEventBus);
 
         ModConfiguredFeatures.Register(modEventBus);
         ModPlacedFeatures.Register(modEventBus);
+
+        EffectsInit.Register(modEventBus);
 
         GeckoLib.initialize();
 
