@@ -7,10 +7,16 @@ import me.catdev.nuclearcoremod.init.EffectsInit;
 import me.catdev.nuclearcoremod.utils.TickableBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
+
+import java.util.List;
 
 public class UraniumOreEntity extends BlockEntity implements TickableBlockEntity {
     public UraniumOreEntity(BlockPos pos, BlockState state) {
@@ -22,11 +28,11 @@ public class UraniumOreEntity extends BlockEntity implements TickableBlockEntity
         BlockPos radiationSourcePos = findRadiationSourcePosition();
 
         if (radiationSourcePos != null) {
-            // Check player proximity to the radiation source
-            Player closestPlayer = level.getNearestPlayer(radiationSourcePos.getX() + 0.5, radiationSourcePos.getY() + 0.5, radiationSourcePos.getZ() + 0.5, -1.0, player -> true);
+            // Get all entities within a 10-block radius of the radiation source
+            List<Entity> entities = level.getEntities((Entity)null, new AABB(radiationSourcePos.offset(-10, -10, -10), radiationSourcePos.offset(10, 10, 10)), entity -> entity instanceof LivingEntity);
 
-            if (closestPlayer != null) {
-                double distance = closestPlayer.distanceToSqr(radiationSourcePos.getX() + 0.5, radiationSourcePos.getY() + 0.5, radiationSourcePos.getZ() + 0.5);
+            for (Entity entity : entities) {
+                double distance = entity.distanceToSqr(radiationSourcePos.getX() + 0.5, radiationSourcePos.getY() + 0.5, radiationSourcePos.getZ() + 0.5);
 
                 double triggerDistance = 10.0 * 10.0; // 10 blocks * 10 blocks = 100.0 (meters)
 
@@ -35,7 +41,9 @@ public class UraniumOreEntity extends BlockEntity implements TickableBlockEntity
                     int effectStrength = (int)(10.0 - Math.sqrt(distance)); // Adjust this formula as needed
 
                     if (effectStrength > 0) {
-                        closestPlayer.addEffect(new MobEffectInstance(EffectsInit.RADIATION_EFFECT.get(), 200, effectStrength - 1));
+                        if (entity instanceof LivingEntity) {
+                            ((LivingEntity) entity).addEffect(new MobEffectInstance(EffectsInit.RADIATION_EFFECT.get(), 200, effectStrength - 1));
+                        }
                     }
                 }
             }
@@ -64,6 +72,4 @@ public class UraniumOreEntity extends BlockEntity implements TickableBlockEntity
 
         return null; // No radiation source found within the search radius
     }
-
-
 }
