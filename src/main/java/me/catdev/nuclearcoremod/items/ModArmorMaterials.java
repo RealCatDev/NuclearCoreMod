@@ -12,7 +12,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import java.util.function.Supplier;
 
 public enum ModArmorMaterials implements ArmorMaterial {
-    RADIATION_SUIT("radiation_suit", 28, new int[]{2, 5, 8, 3}, 19, SoundEvents.ARMOR_EQUIP_GOLD,
+    RADIATION_SUIT("radiation_suit", 28, new int[]{2, 5, 8, 3}, 19, SoundEvents.ARMOR_EQUIP_LEATHER,
             2.0F, 0.0F, () -> Ingredient.of(ItemsInit.URANIUM_INGOT.get()));
 
     private static final int[] HEALTH_PER_SLOT = new int[]{13, 15, 16, 11};

@@ -6,5 +6,5 @@
   "block.nuclearcoremod.uranium_ore": "Ruda uranu",
   "block.nuclearcoremod.electrical_wire": "Przewód elektryczny",
 
-  "itemGroup.Nuclear Core": "Jądrowy rdzeń"
+  "itemGroup.nuclearcoremod.nuclearcoretab": "NuclearCore"
 }

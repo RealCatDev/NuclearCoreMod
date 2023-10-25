@@ -6,5 +6,7 @@
   "block.nuclearcoremod.uranium_ore":  "Uranium Ore",
   "block.nuclearcoremod.electrical_wire": "Electrical Wire",
 
-  "itemGroup.Nuclear Core": "Nuclear Core"
+  "itemGroup.nuclearcoretab": "Nuclear Core",
+
+  "death.attack.nuclearcoremod.radiation": "Radiation"
 }

@@ -139,10 +139,7 @@ repositories {
         name = "ModMaven"
         url = "https://modmaven.dev"
     }
-    maven {
-        name = 'GeckoLib'
-        url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
-    }
+    maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
 }
 
 dependencies {
