@@ -58,7 +58,6 @@ public class UraniumOreEntity extends BlockEntity implements TickableBlockEntity
         Block block = blockState.getBlock();
 
         if (block instanceof UraniumOre) {
-            System.out.println("lol?");
             return currentPos; // Return the radiation source position
         }
 
