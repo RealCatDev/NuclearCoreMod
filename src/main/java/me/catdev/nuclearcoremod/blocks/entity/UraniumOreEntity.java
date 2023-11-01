@@ -52,23 +52,31 @@ public class UraniumOreEntity extends BlockEntity implements TickableBlockEntity
 
     private BlockPos findRadiationSourcePosition() {
         BlockPos currentPos = worldPosition;
-        int searchRadius = 10; // Set your desired search radius
+//        int searchRadius = 10; // Set your desired search radius
+
+        BlockState blockState = level.getBlockState(currentPos);
+        Block block = blockState.getBlock();
+
+        if (block instanceof UraniumOre) {
+            System.out.println("lol?");
+            return currentPos; // Return the radiation source position
+        }
 
         // Iterate through nearby blocks in a cubic region
-        for (int x = -searchRadius; x <= searchRadius; x++) {
-            for (int y = -searchRadius; y <= searchRadius; y++) {
-                for (int z = -searchRadius; z <= searchRadius; z++) {
-                    BlockPos checkPos = currentPos.offset(x, y, z);
-                    BlockState blockState = level.getBlockState(checkPos);
-                    Block block = blockState.getBlock();
-
-                    // Check if the block is your radiation source block
-                    if (block instanceof UraniumOre) {
-                        return checkPos; // Return the radiation source position
-                    }
-                }
-            }
-        }
+//        for (int x = -searchRadius; x <= searchRadius; x++) {
+//            for (int y = -searchRadius; y <= searchRadius; y++) {
+//                for (int z = -searchRadius; z <= searchRadius; z++) {
+//                    BlockPos checkPos = currentPos.offset(x, y, z);
+//                    BlockState blockState = level.getBlockState(checkPos);
+//                    Block block = blockState.getBlock();
+//
+//                    // Check if the block is your radiation source block
+//                    if (block instanceof UraniumOre) {
+//                        return checkPos; // Return the radiation source position
+//                    }
+//                }
+//            }
+//        }
 
         return null; // No radiation source found within the search radius
     }
