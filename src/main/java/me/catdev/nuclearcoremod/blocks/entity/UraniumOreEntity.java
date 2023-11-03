@@ -25,25 +25,24 @@ public class UraniumOreEntity extends BlockEntity implements TickableBlockEntity
     @Override
     public void tick() {
         // Find the radiation source dynamically in the world
-        BlockPos radiationSourcePos = findRadiationSourcePosition();
+        BlockPos radiationSourcePos = null;
+        if ((radiationSourcePos = findRadiationSourcePosition()) == null) return;
 
-        if (radiationSourcePos != null) {
-            // Get all entities within a 10-block radius of the radiation source
-            List<Entity> entities = level.getEntities((Entity)null, new AABB(radiationSourcePos.offset(-10, -10, -10), radiationSourcePos.offset(10, 10, 10)), entity -> entity instanceof LivingEntity);
+        // Get all entities within a 10-block radius of the radiation source
+        List<Entity> entities = level.getEntities((Entity)null, new AABB(radiationSourcePos.offset(-10, -10, -10), radiationSourcePos.offset(10, 10, 10)), entity -> entity instanceof LivingEntity);
 
-            for (Entity entity : entities) {
-                double distance = entity.distanceToSqr(radiationSourcePos.getX() + 0.5, radiationSourcePos.getY() + 0.5, radiationSourcePos.getZ() + 0.5);
+        for (Entity entity : entities) {
+            double distance = entity.distanceToSqr(radiationSourcePos.getX() + 0.5, radiationSourcePos.getY() + 0.5, radiationSourcePos.getZ() + 0.5);
 
-                double triggerDistance = 10.0 * 10.0; // 10 blocks * 10 blocks = 100.0 (meters)
+            double triggerDistance = 10.0 * 10.0; // 10 blocks * 10 blocks = 100.0 (meters)
 
-                if (distance < triggerDistance) {
-                    // Calculate the strength of the radiation effect based on the distance
-                    int effectStrength = (int)(10.0 - Math.sqrt(distance)); // Adjust this formula as needed
+            if (distance < triggerDistance) {
+                // Calculate the strength of the radiation effect based on the distance
+                int effectStrength = (int)(10.0 - Math.sqrt(distance)); // Adjust this formula as needed
 
-                    if (effectStrength > 0) {
-                        if (entity instanceof LivingEntity) {
-                            ((LivingEntity) entity).addEffect(new MobEffectInstance(EffectsInit.RADIATION_EFFECT.get(), 200, effectStrength - 1));
-                        }
+                if (effectStrength > 0) {
+                    if (entity instanceof LivingEntity) {
+                        ((LivingEntity) entity).addEffect(new MobEffectInstance(EffectsInit.RADIATION_EFFECT.get(), 200, effectStrength - 1));
                     }
                 }
             }
@@ -55,6 +54,7 @@ public class UraniumOreEntity extends BlockEntity implements TickableBlockEntity
 //        int searchRadius = 10; // Set your desired search radius
 
         BlockState blockState = level.getBlockState(currentPos);
+        if (blockState == null) return null;
         Block block = blockState.getBlock();
 
         if (block instanceof UraniumOre) {
