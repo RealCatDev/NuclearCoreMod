@@ -36,11 +36,12 @@ public class NuclearCoreMod
         BlockEntityInit.Register(modEventBus);
 
         ItemsInit.Register(modEventBus);
+        EffectsInit.Register(modEventBus);
 
         ModConfiguredFeatures.Register(modEventBus);
         ModPlacedFeatures.Register(modEventBus);
 
-        EffectsInit.Register(modEventBus);
+
 
         GeckoLib.initialize();
 
