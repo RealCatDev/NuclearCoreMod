@@ -1,25 +1,26 @@
-package me.catdev.nuclearcoremod.blocks;
+package me.catdev.nuclearcoremod.blocks.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.minecraft.world.level.block.PipeBlock;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
-public class ElectricalWire extends HorizontalDirectionalBlock {
-    public static final DirectionProperty FACING = BlockStateProperties.FACING;
+// TODO: Implement
+public class ElectricalWire /*extends PipeBlock*/ {
+    /*public static final DirectionProperty FACING = BlockStateProperties.FACING;
 
     public ElectricalWire(Properties pProperties) {
         super(pProperties);
@@ -38,7 +39,8 @@ public class ElectricalWire extends HorizontalDirectionalBlock {
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        return this.defaultBlockState().setValue(FACING, pContext.getNearestLookingDirection().getOpposite());
+        BlockState state = super.getStateForPlacement(pContext);
+        return this.getWireState(state, pContext, state.getValue(FACING));
     }
 
     @Override
@@ -50,4 +52,39 @@ public class ElectricalWire extends HorizontalDirectionalBlock {
     public void onNeighborChange(BlockState state, LevelReader level, BlockPos pos, BlockPos neighbor) {
 //        if (level.getBlockState(neighbor).getBlock() == ElectricalWire.this)
     }
+
+    public enum Type implements StringRepresentable {
+        CORNER_TOP("corner_top"),
+        CORNER_BOTTOM("corner_bottom"),
+        CORNER_LEFT("corner_left"),
+        CORNER_RIGHT("corner_right");
+
+//        TEE_TB("tee_tb"),
+//        TEE_TL("tee_tl"),
+//        TEE_TR("tee_tr"),
+//        TEE_TFRONT("tee_tfront"),
+//
+//        TEE_BL("tee_bl"),
+//        TEE_BR("tee_br"),
+//        TEE_BFRONT("tee_bfront"),
+//        TEE_("corner_left");
+
+        private final String id;
+
+        Type(String id) {
+            this.id = id;
+        }
+
+        @Override
+        public String getSerializedName()
+        {
+            return id;
+        }
+
+        @Override
+        public String toString()
+        {
+            return id;
+        }
+    }*/
 }

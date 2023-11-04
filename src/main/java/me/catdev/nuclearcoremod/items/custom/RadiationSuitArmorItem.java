@@ -1,6 +1,7 @@
 package me.catdev.nuclearcoremod.items.custom;
 
 import com.google.common.collect.ImmutableMap;
+import me.catdev.nuclearcoremod.init.EffectsInit;
 import me.catdev.nuclearcoremod.items.ModArmorMaterials;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -26,10 +27,6 @@ import java.util.Map;
 public class RadiationSuitArmorItem extends GeoArmorItem implements IAnimatable {
     private AnimationFactory factory = new AnimationFactory(this);
 
-    private static final Map<ArmorMaterial, MobEffectInstance> MATERIAL_TO_EFFECT_MAP =
-            (new ImmutableMap.Builder<ArmorMaterial, MobEffectInstance>())
-                    .put(ModArmorMaterials.RADIATION_SUIT, new MobEffectInstance(MobEffects.LUCK, 200, 1)).build();
-
     public RadiationSuitArmorItem(ArmorMaterial material, EquipmentSlot slot, Properties settings) {
         super(material, slot, settings);
     }
@@ -53,41 +50,8 @@ public class RadiationSuitArmorItem extends GeoArmorItem implements IAnimatable 
     @Override
     public void onArmorTick(ItemStack stack, Level level, Player player) {
         if(!level.isClientSide()) {
-            if(hasFullSuitOfArmorOn(player)) {
-                evaluateArmorEffects(player);
-            }
+            // idk what to put here
         }
-    }
-
-    private void evaluateArmorEffects(Player player) {
-        for (Map.Entry<ArmorMaterial, MobEffectInstance> entry : MATERIAL_TO_EFFECT_MAP.entrySet()) {
-            ArmorMaterial mapArmorMaterial = entry.getKey();
-            MobEffectInstance mapStatusEffect = entry.getValue();
-
-            if(hasCorrectArmorOn(mapArmorMaterial, player)) {
-                addStatusEffectForMaterial(player, mapArmorMaterial, mapStatusEffect);
-            }
-        }
-    }
-
-    private void addStatusEffectForMaterial(Player player, ArmorMaterial mapArmorMaterial,
-                                            MobEffectInstance mapStatusEffect) {
-        boolean hasPlayerEffect = player.hasEffect(mapStatusEffect.getEffect());
-
-        if(hasCorrectArmorOn(mapArmorMaterial, player) && !hasPlayerEffect) {
-            player.addEffect(new MobEffectInstance(mapStatusEffect.getEffect(),
-                    mapStatusEffect.getDuration(), mapStatusEffect.getAmplifier()));
-        }
-    }
-
-    private boolean hasFullSuitOfArmorOn(Player player) {
-        ItemStack boots = player.getInventory().getArmor(0);
-        ItemStack leggings = player.getInventory().getArmor(1);
-        ItemStack breastplate = player.getInventory().getArmor(2);
-        ItemStack helmet = player.getInventory().getArmor(3);
-
-        return !helmet.isEmpty() && !breastplate.isEmpty()
-                && !leggings.isEmpty() && !boots.isEmpty();
     }
 
     private boolean hasCorrectArmorOn(ArmorMaterial material, Player player) {

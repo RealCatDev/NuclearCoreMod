@@ -2,13 +2,14 @@
 
   "item.nuclearcoremod.radiationmeter": "Radiation Meter",
   "item.nuclearcoremod.uranium_ingot":  "Uranium Ingot",
+  "item.nuclearcoremod.radiation_mask":  "Radiation Mask",
 
   "block.nuclearcoremod.uranium_ore":  "Uranium Ore",
   "block.nuclearcoremod.electrical_wire": "Electrical Wire",
 
   "itemGroup.nuclearcoretab": "Nuclear Core",
 
-  "death.attack.nuclearcoremod.radiation": "Radiation",
+  "death.attack.nuclearcoremod.radiation": "%1$s died from radiation",
   "commands.title.show.actionbar.single.nuclearcoremod.radiationmeter": "Distance to Radiation Source: %s"
 
 }

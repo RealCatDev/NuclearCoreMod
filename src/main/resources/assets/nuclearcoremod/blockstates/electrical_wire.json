@@ -1,10 +1,22 @@
 {
   "variants": {
-    "facing=north" : { "model": "nuclearcoremod:block/electrical_wire" },
-    "facing=south" : { "model": "nuclearcoremod:block/electrical_wire", "y": 180 },
-    "facing=west" : { "model": "nuclearcoremod:block/electrical_wire", "y": 270 },
-    "facing=east" : { "model": "nuclearcoremod:block/electrical_wire", "y": 90 },
-    "facing=up" : { "model": "nuclearcoremod:block/electrical_wire", "x": 90 },
-    "facing=down" : { "model": "nuclearcoremod:block/electrical_wire", "x": -90 }
+    "facing=north" : {
+      "model": "nuclearcoremod:block/electrical_wire"
+    },
+    "facing=south" : {
+      "model": "nuclearcoremod:block/electrical_wire", "y": 180
+    },
+    "facing=west" : {
+      "model": "nuclearcoremod:block/electrical_wire", "y": 270
+    },
+    "facing=east" : {
+      "model": "nuclearcoremod:block/electrical_wire", "y": 90
+    },
+    "facing=up" : {
+      "model": "nuclearcoremod:block/electrical_wire", "x": 90
+    },
+    "facing=down" : {
+      "model": "nuclearcoremod:block/electrical_wire", "x": -90
+    }
   }
 }
