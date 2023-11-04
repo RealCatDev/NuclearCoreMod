@@ -1,20 +1,19 @@
 package me.catdev.nuclearcoremod.blocks.entity;
 
-import me.catdev.nuclearcoremod.NuclearCoreMod;
 import me.catdev.nuclearcoremod.blocks.custom.UraniumOre;
 import me.catdev.nuclearcoremod.init.BlockEntityInit;
 import me.catdev.nuclearcoremod.init.EffectsInit;
 import me.catdev.nuclearcoremod.utils.TickableBlockEntity;
+import me.catdev.nuclearcoremod.utils.RadiationUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 
 import java.util.List;
 
@@ -32,36 +31,23 @@ public class UraniumOreEntity extends BlockEntity implements TickableBlockEntity
         List<Entity> entities = level.getEntities((Entity)null, new AABB(radiationSourcePos.offset(-10, -10, -10), radiationSourcePos.offset(10, 10, 10)), entity -> entity instanceof LivingEntity);
 
         for (Entity entity : entities) {
-            double distance = entity.distanceToSqr(radiationSourcePos.getX() + 0.5, radiationSourcePos.getY() + 0.5, radiationSourcePos.getZ() + 0.5);
-
-            double triggerDistance = 10.0 * 10.0; // 10 blocks * 10 blocks = 100.0 (meters)
-
-            if (distance < triggerDistance) {
-                // Calculate the strength of the radiation effect based on the distance
-                int effectStrength = (int)(10.0 - Math.sqrt(distance)); // Adjust this formula as needed
-
-                if (effectStrength > 0) {
-                    if (entity instanceof LivingEntity) {
-                        ((LivingEntity) entity).addEffect(new MobEffectInstance(EffectsInit.RADIATION_EFFECT.get(), 200, effectStrength - 1));
-                    }
-                }
-            }
+            if (!(entity instanceof LivingEntity)) continue;
+            LivingEntity livingEntity = ((LivingEntity) entity);
+            if (RadiationUtils.IsInRange(livingEntity)) livingEntity.addEffect(new MobEffectInstance(EffectsInit.RADIATION_EFFECT.get(), 200, RadiationUtils.GetRadiationStrength(Vec3.atCenterOf(entity.blockPosition()))));
         }
     }
 
     public BlockPos findRadiationSourcePosition() {
         BlockPos currentPos = worldPosition;
-//        int searchRadius = 10; // Set your desired search radius
 
         BlockState blockState = level.getBlockState(currentPos);
         if (blockState == null) return null;
         Block block = blockState.getBlock();
 
         if (block instanceof UraniumOre) {
-            return currentPos; // Return the radiation source position
+            if (!RadiationUtils.positions.contains(currentPos)) RadiationUtils.positions.add(currentPos);
+            return currentPos;
         }
-
-
 
         return null;
     }
