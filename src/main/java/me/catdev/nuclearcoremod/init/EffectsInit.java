@@ -14,7 +14,7 @@ public class EffectsInit {
     public static final DeferredRegister<MobEffect> EFFECTS = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, NuclearCoreMod.MOD_ID);
 
     public static final RegistryObject<MobEffect> RADIATION_EFFECT = EFFECTS.register("radiationeffect",
-            () -> new RadiationEffect(MobEffectCategory.HARMFUL,  0xFF6600));
+            () -> new RadiationEffect(MobEffectCategory.HARMFUL,  0x006400));
 
 
     public static void Register(IEventBus eventBus){
