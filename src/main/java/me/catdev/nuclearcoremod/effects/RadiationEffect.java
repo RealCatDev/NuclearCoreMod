@@ -1,10 +1,12 @@
 package me.catdev.nuclearcoremod.effects;
 
 import com.mojang.logging.LogUtils;
+import me.catdev.nuclearcoremod.init.ItemsInit;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import org.slf4j.Logger;
 
 public class RadiationEffect extends MobEffect {
@@ -20,13 +22,12 @@ public class RadiationEffect extends MobEffect {
     // Good job mate!
     @Override
     public void applyEffectTick(LivingEntity entity, int amplifier) {
-        // Define a base damage amount
-        int baseDamage = 1; // Adjust this as needed
-
-        // Calculate the damage based on the effect's level (amplifier)
-        int damage = baseDamage * (amplifier + 1); // You can adjust the multiplier as needed
-
-        // Apply the damage using your custom damage source
+        if (entity instanceof Player) {
+            Player plr = ((Player)entity);
+            if (plr.getInventory().getArmor(3).getItem() == ItemsInit.RADIATION_MASK.get()) return;
+        }
+        int baseDamage = 1;
+        int damage = baseDamage * (amplifier + 1);
         entity.hurt(new DamageSource("nuclearcoremod.radiation"), damage);
     }
 

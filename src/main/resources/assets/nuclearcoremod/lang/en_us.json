@@ -8,6 +8,7 @@
 
   "itemGroup.nuclearcoretab": "Nuclear Core",
 
-  "death.attack.nuclearcoremod.radiation": "Radiation"
+  "death.attack.nuclearcoremod.radiation": "Radiation",
+  "commands.title.show.actionbar.single.nuclearcoremod.radiationmeter": "Distance to Radiation Source: %s"
 
 }

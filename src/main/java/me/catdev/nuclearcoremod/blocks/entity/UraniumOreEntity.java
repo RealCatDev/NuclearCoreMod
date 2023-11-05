@@ -3,12 +3,14 @@ package me.catdev.nuclearcoremod.blocks.entity;
 import me.catdev.nuclearcoremod.blocks.custom.UraniumOre;
 import me.catdev.nuclearcoremod.init.BlockEntityInit;
 import me.catdev.nuclearcoremod.init.EffectsInit;
+import me.catdev.nuclearcoremod.init.ItemsInit;
 import me.catdev.nuclearcoremod.utils.TickableBlockEntity;
 import me.catdev.nuclearcoremod.utils.RadiationUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -33,7 +35,13 @@ public class UraniumOreEntity extends BlockEntity implements TickableBlockEntity
         for (Entity entity : entities) {
             if (!(entity instanceof LivingEntity)) continue;
             LivingEntity livingEntity = ((LivingEntity) entity);
-            if (RadiationUtils.IsInRange(livingEntity)) livingEntity.addEffect(new MobEffectInstance(EffectsInit.RADIATION_EFFECT.get(), 200, RadiationUtils.GetRadiationStrength(Vec3.atCenterOf(entity.blockPosition()))));
+            if (RadiationUtils.IsInRange(livingEntity)) {
+//                if (livingEntity instanceof Player) {
+//                    Player plr = ((Player)livingEntity);
+//                    if (plr.getInventory().getArmor(3).getItem() == ItemsInit.RADIATION_MASK.get()) continue;
+//                }
+                livingEntity.addEffect(new MobEffectInstance(EffectsInit.RADIATION_EFFECT.get(), 200, RadiationUtils.GetRadiationStrength(Vec3.atCenterOf(entity.blockPosition()))));
+            }
         }
     }
 
